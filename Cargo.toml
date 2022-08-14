@@ -1,0 +1,9 @@
+[workspace]
+members = [
+	"game/game_client",
+	"game/game_server",
+	"game/game_shared",
+	"multiplayer_lib/multiplayer_client",
+	"multiplayer_lib/multiplayer_server",
+	"multiplayer_lib/multiplayer_shared",
+]

@@ -1,0 +1,51 @@
+{
+	"folders": [
+		{
+			"name": "Client",
+			"path": "."
+		},
+		{
+			"name": "Shared",
+			"path": "../multiplayer_shared"
+		}
+	],
+	"settings": {
+		"rust-analyzer.cachePriming.numThreads": 8,
+		"rust-analyzer.checkOnSave.extraArgs": [
+			"--target-dir",
+			"./target"
+		],
+		"rust-analyzer.cargo.buildScripts.enable": true,
+		"editor.formatOnSave": true,
+		"rust-analyzer.restartServerOnConfigChange": true,
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Build client [static]",
+				"type": "cargo",
+				"command": "build",
+				"args": [
+					"--package=multiplayer_client",
+					"--target-dir=./target",
+				],
+				"problemMatcher": [
+					"$rustc"
+				],
+				"group": {
+					"kind": "build",
+					"isDefault": false
+				}
+			},
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"serayuzgur.crates",
+			"rust-lang.rust-analyzer",
+			"tamasfe.even-better-toml",
+			"aaron-bond.better-comments"
+		]
+	}
+}
