@@ -1,16 +1,12 @@
 {
 	"folders": [
 		{
-			"name": "Client",
-			"path": "../game_client"
-		},
-		{
 			"name": "Server",
-			"path": "../game_server"
+			"path": "./game_server"
 		},
 		{
 			"name": "Shared",
-			"path": "."
+			"path": "./game_shared"
 		}
 	],
 	"settings": {
@@ -27,13 +23,36 @@
 		"version": "2.0.0",
 		"tasks": [
 			{
+				"label": "Run server [dynamic]",
+				"type": "cargo",
+				"command": "run",
+				"args": [
+					"--package=game_server",
+					"--target-dir=./target",
+					"--features=bevy/dynamic"
+				],
+				"options": {
+					"cwd": "../game_server"
+				},
+				"problemMatcher": [
+					"$rustc"
+				],
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				}
+			},
+			{
 				"label": "Run server [static]",
 				"type": "cargo",
 				"command": "run",
 				"args": [
 					"--package=game_server",
-					"--target-dir=./target"
+					"--target-dir=./target",
 				],
+				"options": {
+					"cwd": "../game_server"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],
@@ -50,77 +69,15 @@
 					"--package=game_server",
 					"--target-dir=./target",
 				],
+				"options": {
+					"cwd": "../game_server"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],
 				"group": {
 					"kind": "build",
 					"isDefault": false
-				}
-			},
-			{
-				"label": "Run client [static]",
-				"type": "cargo",
-				"command": "run",
-				"args": [
-					"--package=game_client",
-					"--target-dir=./target",
-				],
-				"problemMatcher": [
-					"$rustc"
-				],
-				"group": {
-					"kind": "build",
-					"isDefault": false
-				}
-			},
-			{
-				"label": "Run client [dynamic]",
-				"type": "cargo",
-				"command": "run",
-				"args": [
-					"--package=game_client",
-					"--target-dir=./target",
-					"--features=bevy/dynamic"
-				],
-				"problemMatcher": [
-					"$rustc"
-				],
-				"group": {
-					"kind": "build",
-					"isDefault": false
-				}
-			},
-			{
-				"label": "Build client [static]",
-				"type": "cargo",
-				"command": "build",
-				"args": [
-					"--package=game_client",
-					"--target-dir=./target",
-				],
-				"problemMatcher": [
-					"$rustc"
-				],
-				"group": {
-					"kind": "build",
-					"isDefault": false
-				}
-			},
-			{
-				"label": "Build shared [static]",
-				"type": "cargo",
-				"command": "build",
-				"args": [
-					"--package=game_shared",
-					"--target-dir=./target",
-				],
-				"problemMatcher": [
-					"$rustc"
-				],
-				"group": {
-					"kind": "build",
-					"isDefault": true
 				}
 			},
 		]

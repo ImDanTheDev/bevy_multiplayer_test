@@ -1,0 +1,11 @@
+# This workspace is disabled for the time being because rust analyzer does not behave
+# correctly when used with cargo workspaces and vscode workspaces. When enabled, rust
+# analyzer shows the same error once per vscode workspace crate.
+# https://github.com/rust-lang/rust-analyzer/issues/8631
+[workspace]
+resolver = "2"
+members = [
+    "multiplayer_client",
+	"multiplayer_server",
+	"multiplayer_shared"
+]

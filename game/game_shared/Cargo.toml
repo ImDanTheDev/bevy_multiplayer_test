@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 multiplayer_shared = { path = "../../multiplayer_lib/multiplayer_shared" }
+bevy = "0.8"
+renet = "0.0.9"

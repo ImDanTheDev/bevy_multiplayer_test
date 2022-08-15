@@ -1,16 +1,8 @@
 {
 	"folders": [
 		{
-			"name": "Client",
-			"path": "../multiplayer_client"
-		},
-		{
-			"name": "Server",
-			"path": "../multiplayer_server"
-		},
-		{
 			"name": "Shared",
-			"path": "."
+			"path": "./multiplayer_shared"
 		}
 	],
 	"settings": {
@@ -41,39 +33,7 @@
 					"kind": "build",
 					"isDefault": true
 				}
-			},
-			{
-				"label": "Build client [static]",
-				"type": "cargo",
-				"command": "build",
-				"args": [
-					"--package=multiplayer_client",
-					"--target-dir=./target",
-				],
-				"problemMatcher": [
-					"$rustc"
-				],
-				"group": {
-					"kind": "build",
-					"isDefault": false
-				}
-			},
-			{
-				"label": "Build server [static]",
-				"type": "cargo",
-				"command": "build",
-				"args": [
-					"--package=multiplayer_server",
-					"--target-dir=./target",
-				],
-				"problemMatcher": [
-					"$rustc"
-				],
-				"group": {
-					"kind": "build",
-					"isDefault": false
-				}
-			},
+			}
 		]
 	},
 	"extensions": {

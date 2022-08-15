@@ -2,11 +2,15 @@
 	"folders": [
 		{
 			"name": "Client",
-			"path": "."
+			"path": "./multiplayer_client"
+		},
+		{
+			"name": "Server",
+			"path": "./multiplayer_server"
 		},
 		{
 			"name": "Shared",
-			"path": "../game_shared"
+			"path": "./multiplayer_shared",
 		}
 	],
 	"settings": {
@@ -23,14 +27,16 @@
 		"version": "2.0.0",
 		"tasks": [
 			{
-				"label": "Run client [dynamic]",
+				"label": "Build shared [static]",
 				"type": "cargo",
-				"command": "run",
+				"command": "build",
 				"args": [
-					"--package=game_client",
-					"--target-dir=./target",
-					"--features=bevy/dynamic"
+					"--package=multiplayer_shared",
+					"--target-dir=./target"
 				],
+				"options": {
+					"cwd": "../multiplayer_shared"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],
@@ -40,13 +46,16 @@
 				}
 			},
 			{
-				"label": "Run client [static]",
+				"label": "Build client [static]",
 				"type": "cargo",
-				"command": "run",
+				"command": "build",
 				"args": [
-					"--package=game_client",
+					"--package=multiplayer_client",
 					"--target-dir=./target"
 				],
+				"options": {
+					"cwd": "../multiplayer_client"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],
@@ -56,13 +65,16 @@
 				}
 			},
 			{
-				"label": "Build client [static]",
+				"label": "Build server [static]",
 				"type": "cargo",
 				"command": "build",
 				"args": [
-					"--package=game_client",
-					"--target-dir=./target",
+					"--package=multiplayer_server",
+					"--target-dir=./target"
 				],
+				"options": {
+					"cwd": "../multiplayer_server"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],
@@ -70,7 +82,7 @@
 					"kind": "build",
 					"isDefault": false
 				}
-			},
+			}
 		]
 	},
 	"extensions": {

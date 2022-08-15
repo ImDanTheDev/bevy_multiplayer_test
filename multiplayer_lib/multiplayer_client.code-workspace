@@ -2,11 +2,11 @@
 	"folders": [
 		{
 			"name": "Client",
-			"path": "."
+			"path": "./multiplayer_client"
 		},
 		{
 			"name": "Shared",
-			"path": "../multiplayer_shared"
+			"path": "./multiplayer_shared"
 		}
 	],
 	"settings": {
@@ -30,6 +30,9 @@
 					"--package=multiplayer_client",
 					"--target-dir=./target",
 				],
+				"options": {
+					"cwd": "../multiplayer_client"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],

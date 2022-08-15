@@ -1,12 +1,8 @@
 {
 	"folders": [
 		{
-			"name": "Server",
-			"path": "."
-		},
-		{
 			"name": "Shared",
-			"path": "../multiplayer_shared"
+			"path": "./game_shared"
 		}
 	],
 	"settings": {
@@ -23,19 +19,22 @@
 		"version": "2.0.0",
 		"tasks": [
 			{
-				"label": "Build server [static]",
+				"label": "Build shared [static]",
 				"type": "cargo",
 				"command": "build",
 				"args": [
-					"--package=multiplayer_server",
+					"--package=game_shared",
 					"--target-dir=./target",
 				],
+				"options": {
+					"cwd": "../game_shared"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],
 				"group": {
 					"kind": "build",
-					"isDefault": false
+					"isDefault": true
 				}
 			},
 		]

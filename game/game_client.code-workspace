@@ -1,12 +1,12 @@
 {
 	"folders": [
 		{
-			"name": "Server",
-			"path": "."
+			"name": "Client",
+			"path": "./game_client"
 		},
 		{
 			"name": "Shared",
-			"path": "../game_shared"
+			"path": "./game_shared"
 		}
 	],
 	"settings": {
@@ -23,14 +23,17 @@
 		"version": "2.0.0",
 		"tasks": [
 			{
-				"label": "Run server [dynamic]",
+				"label": "Run client [dynamic]",
 				"type": "cargo",
 				"command": "run",
 				"args": [
-					"--package=game_server",
+					"--package=game_client",
 					"--target-dir=./target",
 					"--features=bevy/dynamic"
 				],
+				"options": {
+					"cwd": "../game_client"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],
@@ -40,13 +43,16 @@
 				}
 			},
 			{
-				"label": "Run server [static]",
+				"label": "Run client [static]",
 				"type": "cargo",
 				"command": "run",
 				"args": [
-					"--package=game_server",
-					"--target-dir=./target",
+					"--package=game_client",
+					"--target-dir=./target"
 				],
+				"options": {
+					"cwd": "../game_client"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],
@@ -56,13 +62,16 @@
 				}
 			},
 			{
-				"label": "Build server [static]",
+				"label": "Build client [static]",
 				"type": "cargo",
 				"command": "build",
 				"args": [
-					"--package=game_server",
+					"--package=game_client",
 					"--target-dir=./target",
 				],
+				"options": {
+					"cwd": "../game_client"
+				},
 				"problemMatcher": [
 					"$rustc"
 				],
