@@ -9,4 +9,4 @@ edition = "2021"
 multiplayer_server = { path = "../../multiplayer_lib/multiplayer_server" }
 game_shared = { path = "../game_shared" }
 bevy = "0.8"
-renet = "0.0.9"
+bevy_renet = "0.0.5"

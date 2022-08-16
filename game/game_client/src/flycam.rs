@@ -15,7 +15,14 @@ pub fn flycam_movement(
     mut query: Query<&mut Transform, With<Camera>>,
     mut px: Local<f32>,
     mut py: Local<f32>,
+    mut input_disabled: Local<bool>,
 ) {
+    if input.just_pressed(KeyCode::F1) {
+        *input_disabled = !*input_disabled;
+    }
+    if *input_disabled {
+        return;
+    }
     if buttons.pressed(MouseButton::Right) {
         for ev in motion_evr.iter() {
             *py -= ev.delta.x * 0.1;
